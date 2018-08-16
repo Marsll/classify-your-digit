@@ -1,10 +1,14 @@
-from flask import Flask, render_template
-from flask import request, flash, redirect, url_for
 import os
+
+from flask import Flask, flash, redirect, render_template, request, url_for
 from werkzeug import secure_filename
 
-UPLOAD_FOLDER = './static/uploads'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+from mnist_predict import predict
+
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'npy'])
 
 
 def allowed_file(filename):
@@ -20,23 +24,22 @@ app.secret_key = os.urandom(24)
 @app.route('/')
 @app.route('/index')
 def landing():
-    return render_template('minimal.html')
+    return render_template('index.html')
 
 
 @app.route('/result/<filename>')
 def result(filename):
+    path_to_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    res = predict(path_to_file)
     return render_template(
-        'result.html',
-         image_dir=url_for('static', filename="uploads/"+filename), res=5)
+        'result.html', res=res)
 
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        app.logger.info("post?!")
         # check if the post request has the file part
         if 'file' not in request.files:
-            app.logger.info("no file")
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
