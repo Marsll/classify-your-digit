@@ -5,3 +5,7 @@
 .img-fluid{
     width: 25%;
 }
+
+body{
+    padding-top: 2rem
+}

@@ -37,7 +37,6 @@ def result(filename):
 
     filepath_npy = os.path.splitext(path_to_file)[0] + ".npy"
     res, prob = predict(filepath_npy)
-    
     return render_template(
         'result.html',
         image_dir=rel_path,

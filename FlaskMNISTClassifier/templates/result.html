@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="../static/favicon.ico">
 
-    <title>MyProject</title>
+    <title>Classification result</title>
 
-    
+
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/starter-template.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/mycustom.css') }}" rel="stylesheet">
 
 </head>
@@ -23,19 +22,19 @@
 <body>
 
     <main role="main" class="container">
+        <div class="text-center">
+            <div>
+                <h1>MNIST Classifier</h1>
+                <p class="lead">Our classifier thinks that this </p>
+            </div>
+            <div>
+                <img src="{{ image_dir }}" alt="Classification result" class="img-fluid mx-auto">
+            </div>
+            <div>
+                is a <strong><span class="large-fontsize">{{ res }}</strong> </span> with probability {{ prob }}&#37.
+            </div>
 
-        <div class="starter-template">
-            <h1>MNIST Classifier</h1>
-            <p class="lead">Our classifier thinks that this </p>
         </div>
-        <div>
-            <img src="{{ image_dir }}" alt="Classification result" class="img-fluid mx-auto"
-            >
-        </div>
-        <div>
-            is a <strong><span class="large-fontsize">{{ res }}</strong> </span> with probability {{ prob }}&#37.
-        </div>
-
 
     </main>
     <!-- /.container -->
@@ -48,7 +47,7 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>
