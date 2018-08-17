@@ -4,6 +4,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from werkzeug import secure_filename
 
 from mnist_predict import predict
+from image_to_npy import img_to_npy
 
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -30,7 +31,9 @@ def landing():
 @app.route('/result/<filename>')
 def result(filename):
     path_to_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    res = predict(path_to_file)
+    img_to_npy(path_to_file)
+    filepath_npy = os.path.splitext(path_to_file)[0] + ".npy"
+    res = predict(filepath_npy)
     return render_template(
         'result.html', res=res)
 
