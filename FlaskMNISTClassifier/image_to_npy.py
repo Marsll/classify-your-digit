@@ -12,7 +12,6 @@ def img_to_npy(path_to_file):
 
     temp_arr = np.array(image)
     idx_argmin = np.unravel_index(temp_arr.argmin(), temp_arr.shape)
-    print(idx_argmin)
 
     color = image.getpixel((idx_argmin[0].item(), idx_argmin[1].item()))
 

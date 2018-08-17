@@ -28,13 +28,12 @@
             <h1>MNIST Classifier</h1>
             <p class="lead">Our classifier thinks that this </p>
         </div>
-        <!-- <div>
-            <img src={{ image_dir }} alt="Classification result" class="img-fluid"
-            >
-        </div> -->
         <div>
-            <p>is a</p>
-            <span class="large-fontsize">{{ res }}</span>
+            <img src="{{ image_dir }}" alt="Classification result" class="img-fluid mx-auto"
+            >
+        </div>
+        <div>
+            is a <strong><span class="large-fontsize">{{ res }}</strong> </span> with probability {{ prob }}&#37.
         </div>
 
 

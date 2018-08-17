@@ -30,12 +30,19 @@ def landing():
 
 @app.route('/result/<filename>')
 def result(filename):
+    rel_path = url_for('static', filename='uploads/'+filename)
+
     path_to_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     img_to_npy(path_to_file)
+
     filepath_npy = os.path.splitext(path_to_file)[0] + ".npy"
-    res = predict(filepath_npy)
+    res, prob = predict(filepath_npy)
+    
     return render_template(
-        'result.html', res=res)
+        'result.html',
+        image_dir=rel_path,
+        res=res,
+        prob=prob)
 
 
 @app.route('/upload', methods=['GET', 'POST'])

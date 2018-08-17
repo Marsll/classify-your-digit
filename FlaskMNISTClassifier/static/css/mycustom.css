@@ -1,3 +1,7 @@
 .large-fontsize{
     font-size: 30px !important;
     } 
+
+.img-fluid{
+    width: 25%;
+}
