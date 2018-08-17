@@ -8,7 +8,7 @@ def predict(path_to_npy_file):
     mnist_classifier = tf.estimator.Estimator(
         model_fn=cnn_model_fn, model_dir='./static/model',)
 
-    picture = np.load(path_to_npy_file).reshape(28 * 28)
+    picture = np.load(path_to_npy_file)#.reshape(28 * 28)
     picture = picture[np.newaxis, :]
 
     predict_input_fn = tf.estimator.inputs.numpy_input_fn(
