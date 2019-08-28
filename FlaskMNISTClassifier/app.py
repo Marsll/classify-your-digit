@@ -3,8 +3,8 @@ import os
 from flask import Flask, flash, redirect, render_template, request, url_for
 from werkzeug import secure_filename
 
-from mnist_predict import predict
-from image_to_npy import img_to_npy
+from .mnist_predict import predict
+from .image_to_npy import img_to_npy
 
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))

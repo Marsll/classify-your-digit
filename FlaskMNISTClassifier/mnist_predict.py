@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-from mnist_model import cnn_model_fn
+from .mnist_model import cnn_model_fn
 
 
 def predict(path_to_npy_file):
