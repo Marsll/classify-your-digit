@@ -1,3 +1,5 @@
+![Showcase](FlaskMNISTClassifier/static/example_readme.png)
+
 # OnlineMNISTClassifier
 
 This small project runs a website via python flask server. The user can upload an image of a handwritten or otherwise digit which is then classified by a TensorFlow model.
