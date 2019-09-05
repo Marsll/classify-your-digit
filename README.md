@@ -9,16 +9,22 @@ This small project runs a website via python flask server. The user can upload a
 ## Installation
 
 To install the package on your machine, set up a new virtual environment, e.g. a conda environment. Clone the repository to the directory of your choice
+
+```bash
+git clone https://github.com/Marsll/WebDevProject.git
 ```
-$ git clone https://github.com/Marsll/WebDevProject.git
-```
+
 Then, **inside the directory** you can install it by
+
+```bash
+python setup.py install
 ```
-$ python setup.py install
-```
+
 Lastly, you can run the flask server by running
+
+```bash
+export FLASK_APP=FlaskMNISTClassifier/app.py
+flask run
 ```
-$ export FLASK_APP=FlaskMNISTClassifier/app.py
-$ flask run
-```
+
 again **inside the directory**. In your browser, you should then see the application on [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
