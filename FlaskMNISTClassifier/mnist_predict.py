@@ -6,7 +6,7 @@ from .mnist_model import cnn_model_fn
 
 def predict(path_to_npy_file):
     mnist_classifier = tf.estimator.Estimator(
-        model_fn=cnn_model_fn, model_dir='./static/model',)
+        model_fn=cnn_model_fn, model_dir='./FlaskMNISTClassifier/static/model',)
 
     picture = np.load(path_to_npy_file).reshape(28 * 28)
     picture = picture[np.newaxis, :]
