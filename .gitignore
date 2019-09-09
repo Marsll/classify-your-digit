@@ -109,6 +109,10 @@ venv.bak/
 .vscode
 .idea
 
-uploads
+# exclude everything in uploads
+uploads/*
+
+# exception to the rule so that uploads folder stays empty
+!uploads/.gitkeep 
 
 
